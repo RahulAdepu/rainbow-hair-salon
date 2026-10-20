@@ -1,22 +1,1034 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#FAF6F0" />
-    <title>Rainbow Hair Salon — Broadview Ave, Toronto</title>
-    <meta name="description" content="A warm, women-owned neighborhood hair salon on Broadview Ave, Toronto. Transparent pricing, quality hair care, and welcoming hospitality. Call (416) 778-7418 to book." />
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B85D43' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='6' cy='6' r='3'/><circle cx='6' cy='18' r='3'/><line x1='20' y1='4' x2='8.12' y2='15.88'/><line x1='14.47' y1='14.48' x2='20' y2='20'/><line x1='8.12' y1='8.12' x2='12' y2='12'/></svg>" />
-  </head>
-  <body class="bg-linen-100 text-espresso-900 font-sans antialiased selection:bg-terracotta-200 selection:text-terracotta-900 min-h-screen">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FAF6F0" />
+  <title>Rainbow Hair Salon — 308 Broadview Ave, Toronto</title>
+  <meta name="description" content="Warm, women-owned neighborhood hair salon on Broadview Ave, Toronto. Transparent pricing, honest craft, and welcoming care. Call (416) 778-7418 to book." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            linen: {
+              50: '#FDFBF7',
+              100: '#FAF6F0',
+              200: '#F4ECE1',
+              300: '#EBDDCD',
+              400: '#DEC9B2',
+            },
+            terracotta: {
+              50: '#FBF5F2',
+              100: '#F7E7E0',
+              200: '#ECCEC0',
+              300: '#DFAEA0',
+              500: '#B85D43',
+              600: '#9B452D',
+              700: '#7E3420',
+            },
+            olive: {
+              100: '#EBEEE1',
+              600: '#616942',
+              700: '#4D5434',
+            },
+            espresso: {
+              700: '#46382E',
+              800: '#342921',
+              900: '#231B15',
+              950: '#17110E',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      background-color: #FAF6F0;
+      color: #231B15;
+      font-family: 'Inter', sans-serif;
+    }
+    ::selection {
+      background-color: #ECCEC0;
+      color: #7E3420;
+    }
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF6F0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #DEC9B2;
+      border-radius: 4px;
+    }
+    .filter-btn.active {
+      background-color: #231B15;
+      color: #FAF6F0;
+    }
+    .service-card {
+      transition: all 0.2s ease-in-out;
+    }
+    .service-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(35, 27, 21, 0.08);
+    }
+  </style>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B85D43' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='6' cy='6' r='3'/><circle cx='6' cy='18' r='3'/><line x1='20' y1='4' x2='8.12' y2='15.88'/><line x1='14.47' y1='14.48' x2='20' y2='20'/><line x1='8.12' y1='8.12' x2='12' y2='12'/></svg>" />
+</head>
+
+<body class="bg-linen-100 text-espresso-900 min-h-screen flex flex-col antialiased selection:bg-terracotta-200 selection:text-terracotta-700">
+
+  <!-- 1. TOP ANNOUNCEMENT BAR -->
+  <aside aria-label="Announcement" class="bg-espresso-950 text-linen-100 text-xs sm:text-sm py-2 px-4 border-b border-espresso-800">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1 text-center sm:text-left">
+      <div class="flex items-center gap-2 font-medium">
+        <svg class="w-3.5 h-3.5 text-terracotta-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        </svg>
+        <span>Walk-ins welcome when available &bull; To guarantee your chair, give us a call</span>
+      </div>
+      <a href="tel:+14167787418" class="inline-flex items-center gap-1.5 font-semibold text-terracotta-200 hover:text-white underline underline-offset-4 transition-colors">
+        <svg class="w-3.5 h-3.5 text-terracotta-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+        <span>Call: (416) 778-7418</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- 2. HEADER & NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-linen-100/95 backdrop-blur-md border-b border-linen-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="#" class="group flex flex-col focus:outline-none" aria-label="Rainbow Hair Salon Home">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-full bg-terracotta-100 flex items-center justify-center text-terracotta-600 transition-transform group-hover:scale-105">
+              <svg class="w-4 h-4 transform -rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="6" cy="6" r="3"></circle>
+                <circle cx="6" cy="18" r="3"></circle>
+                <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+                <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+                <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+              </svg>
+            </span>
+            <span class="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-espresso-950">
+              Rainbow Hair Salon
+            </span>
+          </div>
+          <span class="text-[11px] uppercase tracking-widest text-espresso-700/70 ml-10 font-medium">
+            308 Broadview Ave &bull; Toronto
+          </span>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
+          <a href="#services" class="text-sm font-medium text-espresso-800 hover:text-terracotta-600 transition-colors">Services &amp; Pricing</a>
+          <a href="#about" class="text-sm font-medium text-espresso-800 hover:text-terracotta-600 transition-colors">Our Story</a>
+          <a href="#hours-location" class="text-sm font-medium text-espresso-800 hover:text-terracotta-600 transition-colors">Hours &amp; Location</a>
+        </nav>
+
+        <div class="hidden sm:flex items-center">
+          <a href="tel:+14167787418" class="inline-flex items-center gap-2 bg-terracotta-500 hover:bg-terracotta-600 active:bg-terracotta-700 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-sm hover:shadow hover:-translate-y-0.5">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>Call to Book</span>
+            <span class="hidden lg:inline text-terracotta-100/90 font-normal">(416) 778-7418</span>
+          </a>
+        </div>
+
+        <div class="flex sm:hidden items-center gap-2">
+          <a href="tel:+14167787418" class="p-2.5 rounded-full bg-terracotta-500 text-white" aria-label="Call salon">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+          </a>
+          <button id="mobileMenuBtn" type="button" class="p-2.5 rounded-lg text-espresso-800 hover:bg-linen-200 focus:outline-none" aria-label="Open menu">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden sm:hidden border-t border-linen-300 bg-linen-100 px-4 pt-3 pb-6 space-y-3 shadow-lg">
+      <nav class="flex flex-col space-y-2">
+        <a href="#services" class="mobile-nav-link text-base font-medium text-espresso-900 py-2 border-b border-linen-200">Services &amp; Pricing</a>
+        <a href="#about" class="mobile-nav-link text-base font-medium text-espresso-900 py-2 border-b border-linen-200">Our Story</a>
+        <a href="#hours-location" class="mobile-nav-link text-base font-medium text-espresso-900 py-2 border-b border-linen-200">Hours &amp; Location</a>
+      </nav>
+      <div class="pt-2">
+        <a href="tel:+14167787418" class="w-full flex items-center justify-center gap-2 bg-terracotta-500 text-white py-3 rounded-full font-medium shadow-sm">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          <span>Call: (416) 778-7418</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1">
+
+    <!-- 3. HERO SECTION -->
+    <section class="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24 bg-gradient-to-b from-linen-100 via-linen-50 to-linen-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 bg-linen-200/90 border border-linen-300 text-espresso-800 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium tracking-wide shadow-sm">
+              <svg class="w-3.5 h-3.5 text-terracotta-500 fill-terracotta-500" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+              <span>Women-Owned &bull; Broadview Ave, Toronto</span>
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-espresso-950 leading-[1.15]">
+              Your neighborhood <br class="hidden sm:inline" />
+              <span class="italic font-normal text-terracotta-600">sanctuary</span> for hair &amp; care.
+            </h1>
+
+            <p class="text-base sm:text-lg text-espresso-800/85 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+              A peaceful, unpretentious chair on Broadview Avenue. For over fifteen years, our women-led team has provided attentive cuts, natural color, and genuine hospitality to the Toronto East End community.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 pt-2">
+              <a href="tel:+14167787418" class="inline-flex items-center justify-center gap-3 bg-terracotta-500 hover:bg-terracotta-600 active:bg-terracotta-700 text-white font-medium px-7 py-3.5 rounded-full text-base shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span>Call (416) 778-7418</span>
+              </a>
+
+              <a href="#services" class="inline-flex items-center justify-center gap-2 bg-linen-100 hover:bg-linen-300 text-espresso-900 border border-linen-300 font-medium px-6 py-3.5 rounded-full text-base transition-all hover:-translate-y-0.5">
+                <span>View Price List</span>
+                <svg class="w-4 h-4 text-espresso-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </a>
+            </div>
+
+            <div class="pt-4 border-t border-linen-300/80 grid grid-cols-2 sm:grid-cols-3 gap-3 text-left">
+              <div class="flex items-start gap-2">
+                <span class="text-terracotta-600 font-serif text-lg leading-none mt-0.5">&bull;</span>
+                <div>
+                  <p class="text-xs font-semibold text-espresso-950 uppercase tracking-wider">Walk-ins</p>
+                  <p class="text-xs text-espresso-700">Welcome when available</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-terracotta-600 font-serif text-lg leading-none mt-0.5">&bull;</span>
+                <div>
+                  <p class="text-xs font-semibold text-espresso-950 uppercase tracking-wider">Clear Prices</p>
+                  <p class="text-xs text-espresso-700">No hidden register fees</p>
+                </div>
+              </div>
+              <div class="col-span-2 sm:col-span-1 flex items-start gap-2">
+                <span class="text-terracotta-600 font-serif text-lg leading-none mt-0.5">&bull;</span>
+                <div>
+                  <p class="text-xs font-semibold text-espresso-950 uppercase tracking-wider">Open Daily</p>
+                  <p class="text-xs text-espresso-700">Open until 8:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-linen-300 border-4 border-white aspect-[4/5]">
+                <img
+                  src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80"
+                  alt="Warm, sunlit interior of Rainbow Hair Salon with natural plants, wooden styling stations, and cozy ambiance"
+                  class="w-full h-full object-cover object-center filter saturate-[0.95]"
+                  loading="eager"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-espresso-950/70 via-transparent to-transparent"></div>
+                <div class="absolute bottom-4 left-4 right-4 bg-linen-100/95 backdrop-blur-md p-4 rounded-xl border border-linen-300/60 shadow-lg text-left">
+                  <div class="flex items-center gap-1.5 text-xs font-semibold text-terracotta-600 uppercase tracking-wider mb-1">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <span>Riverside &bull; Broadview Ave</span>
+                  </div>
+                  <p class="font-serif text-espresso-950 text-base font-medium">308 Broadview Ave, Toronto</p>
+                  <p class="text-xs text-espresso-700 mt-0.5">Open Mon–Sat until 8 PM &bull; Sun until 6 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SERVICES & PRICING -->
+    <section id="services" class="py-16 md:py-24 bg-linen-50 scroll-mt-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <div class="inline-flex items-center gap-1.5 text-terracotta-600 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-3">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+            <span>Honest &bull; Transparent &bull; Experienced</span>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-espresso-950">
+            Services &amp; Pricing
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-espresso-800/80 leading-relaxed font-normal">
+            Every service includes our full attention, professional products, and dedicated consultation. What you see is what you pay.
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3" role="tablist">
+            <button class="filter-btn active px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all bg-espresso-900 text-linen-100 shadow-sm" data-category="all">All Services</button>
+            <button class="filter-btn px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all bg-linen-200 text-espresso-800 hover:bg-linen-300" data-category="haircuts">Haircuts &amp; Styling</button>
+            <button class="filter-btn px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all bg-linen-200 text-espresso-800 hover:bg-linen-300" data-category="color">Color &amp; Highlights</button>
+            <button class="filter-btn px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all bg-linen-200 text-espresso-800 hover:bg-linen-300" data-category="treatments">Treatments &amp; Care</button>
+            <button class="filter-btn px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all bg-linen-200 text-espresso-800 hover:bg-linen-300" data-category="waxing">Waxing &amp; Brow</button>
+          </div>
+        </div>
+
+        <div id="servicesContainer" class="space-y-16">
+          
+          <div class="category-block space-y-6" data-category="haircuts">
+            <div class="border-b border-linen-300/80 pb-3 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+              <h3 class="font-serif text-2xl sm:text-3xl font-medium text-espresso-950">Haircuts &amp; Styling</h3>
+              <span class="text-xs sm:text-sm text-espresso-700 font-normal italic">Tailored shapes, precision cuts, and bouncy finishes for every hair type.</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              
+              <div class="service-card bg-white p-5 sm:p-6 rounded-2xl border border-linen-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <h4 class="font-serif text-lg sm:text-xl font-medium text-espresso-950">Women's Haircut &amp; Finish</h4>
+                        <span class="bg-terracotta-50 text-terracotta-600 text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full border border-terracotta-200">Popular</span>
+                      </div>
+                      <p class="text-xs text-espresso-700 font-medium mt-1">45–60 min</p>
+                    </div>
+                    <span class="font-serif text-2xl font-semibold text-espresso-950">$48</span>
+                  </div>
+                  <p class="mt-3 text-sm text-espresso-800/80 leading-relaxed">Includes thorough consultation, warm wash, relaxing scalp massage, precision cut, and blow-dry styling.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-linen-100 flex items-center justify-between text-xs text-espresso-700">
+                  <span class="text-olive-600 font-medium">&bull; Consultation included</span>
+                  <a href="tel:+14167787418" class="text-terracotta-600 font-medium hover:underline">Book by Phone</a>
+                </div>
+              </div>
+
+              <div class="service-card bg-white p-5 sm:p-6 rounded-2xl border border-linen-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <h4 class="font-serif text-lg sm:text-xl font-medium text-espresso-950">Men's Classic Barber Cut</h4>
+                        <span class="bg-terracotta-50 text-terracotta-600 text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full border border-terracotta-200">Popular</span>
+                      </div>
+                      <p class="text-xs text-espresso-700 font-medium mt-1">30–40 min</p>
+                    </div>
+                    <span class="font-serif text-2xl font-semibold text-espresso-950">$28</span>
+                  </div>
+                  <p class="mt-3 text-sm text-espresso-800/80 leading-relaxed">Clean scissor and clipper work, hot rinse, clean neck taper, and light styling product finish.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-linen-100 flex items-center justify-between text-xs text-espresso-700">
+                  <span class="text-olive-600 font-medium">&bull; Consultation included</span>
+                  <a href="tel:+14167787418" class="text-terracotta-600 font-medium hover:underline">Book by Phone</a>
+                </div>
+              </div>
+
+              <div class="service-card bg-white p-5 sm:p-6 rounded-2xl border border-linen-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 class="font-serif text-lg sm:text-xl font-medium text-espresso-950">Children's Cut (10 &amp; under)</h4>
+                      <p class="text-xs text-espresso-700 font-medium mt-1">25–30 min</p>
+                    </div>
+                    <span class="font-serif text-2xl font-semibold text-espresso-950">$22</span>
+                  </div>
+                  <p class="mt-3 text-sm text-espresso-800/80 leading-relaxed">Gentle, patient, and quick haircut designed to keep little ones relaxed and smiling.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-linen-100 flex items-center justify-between text-xs text-espresso-700">
+                  <span class="text-olive-600 font-medium">&bull; Patient &amp; gentle</span>
+                  <a href="tel:+14167787418" class="text-terracotta-600 font-medium hover:underline">Book by Phone</a>
+                </div>
+              </div>
+
+              <div class="service-card bg-white p-5 sm:p-6 rounded-2xl border border-linen-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 class="font-serif text-lg sm:text-xl font-medium text-espresso-950">Signature Wash &amp; Blowout</h4>
+                      <p class="text-xs text-espresso-700 font-medium mt-1">35–45 min</p>
+                    </div>
+                    <span class="font-serif text-2xl font-semibold text-espresso-950">$35</span>
+                  </div>
+                  <p class="mt-3 text-sm text-espresso-800/80 leading-relaxed">Invigorating botanical cleanse, deep moisture condition, and polished round-brush volume finish.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-linen-100 flex items-center justify-between text-xs text-espresso-700">
+                  <span class="text-olive-600 font-medium">&bull; Long-lasting bounce</span>
+                  <a href="tel:+14167787418" class="text-terracotta-600 font-medium hover:underline">Book by Phone</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-block space-y-6" data-category="color">
+            <div class="border-b border-linen-300/80 pb-3 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+              <h3 class="font-serif text-2xl sm:text-3xl font-medium text-espresso-950">Color &amp; Highlights</h3>
+              <span class="text-xs sm:text-sm text-espresso-700 font-normal italic">Dimensional shades, grey coverage, and luminous custom foil work.</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              
+              <div class="service-card bg-white p-5 sm:p-6 rounded-2xl border border-linen-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <h4 class="font-serif text-lg sm:text-xl font-medium text-espresso-950">Single Process Root Touch-Up</h4>
+                        <span class="bg-terracotta-50 text-terracotta-600 text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full border border-terracotta-200">Popular</span>
+                      </div>
+                      <p class="text-xs text-espresso-700 font-medium mt-1">60–75 min</p>
+                    </div>
+                    <span class="font-serif text-2xl font-semibold text-espresso-950">$65</span>
+                  </div>
+                  <p class="mt-3 text-sm text-espresso-800/80 leading-relaxed">Flawless coverage for new growth up to 1.5 inches, matched seamlessly to your existing tone.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-linen-100 flex items-center justify-between text-xs text-espresso-700">
+                  <span class="text-olive-600 font-medium">&bull; 100% grey coverage</span>
+                  <a href="tel:+14167787418" class="text-terracotta-600 font-medium hover:underline">Book by Phone</a>
+                </div>
+              </div>
+
+              <div class="service-card bg-white p-5 sm:p-6 rounded-2xl border border-linen-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 class="font-serif text-lg sm:text-xl font-medium text-espresso-950">Partial Foil Highlights</h4>
+                      <p class="text-xs text-espresso-700 font-medium mt-1">75–90 min</p>
+                    </div>
+                    <span class="font-serif text-2xl font-semibold text-espresso-950">From $95</span>
+                  </div>
+                  <p class="mt-3 text-sm text-espresso-800/80 leading-relaxed">Strategic foil placement along crown and face framing for natural, sun-lit dimension.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-linen-100 flex items-center justify-between text-xs text-espresso-700">
+                  <span class="text-olive-600 font-medium">&bull; Subtle dimension</span>
+                  <a href="tel:+14167787418" class="text-terracotta-600 font-medium hover:underline">Book by Phone</a>
+                </div>
+              </div>
+
+              <div class="service-card bg-white p-5 sm:p-6 rounded-2xl border border-linen-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 class="font-serif text-lg sm:text-xl font-medium text-espresso-950">Full Head Highlights</h4>
+                      <p class="text-xs text-espresso-700 font-medium mt-1">100–120 min</p>
+                    </div>
+                    <span class="font-serif text-2xl font-semibold text-espresso-950">From $135</span>
+                  </div>
+                  <p class="mt-3 text-sm text-espresso-800/80 leading-relaxed">Comprehensive foil coverage from hairline to nape for an all-over brighter, multi-tonal effect.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-linen-100 flex items-center justify-between text-xs text-espresso-700">
+                  <span class="text-olive-600 font-medium">&bull; All-over brightness</span>
+                  <a href="tel:+14167787418" class="text-terracotta-600 font-medium hover:underline">Book by Phone</a>
+                </div>
+              </div>
+
+              <div class="service-card bg-white p-5 sm:p-6 rounded-2xl border border-linen-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 class="font-serif text-lg sm:text-xl font-medium text-espresso-950">Balayage &amp; Lived-in Color</h4>
+                      <p class="text-xs text-espresso-700 font-medium mt-1">120–150 min</p>
+                    </div>
+                    <span class="font-serif text-2xl font-semibold text-espresso-950">From $150</span>
+                  </div>
+                  <p class="mt-3 text-sm text-espresso-800/80 leading-relaxed">Freehand painted illumination for soft transitions and effortless low-maintenance grow-out.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-linen-100 flex items-center justify-between text-xs text-espresso-700">
+                  <span class="text-olive-600 font-medium">&bull; Seamless grow-out</span>
+                  <a href="tel:+14167787418" class="text-terracotta-600 font-medium hover:underline">Book by Phone</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-block space-y-6" data-category="treatments">
+            <div class="border-b border-linen-300/80 pb-3 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+              <h3 class="font-serif text-2xl sm:text-3xl font-medium text-espresso-950">Treatments &amp; Care</h3>
+              <span class="text-xs sm:text-sm text-espresso-700 font-normal italic">Therapeutic rituals to restore moisture, bounce, and silkiness.</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              
+              <div class="service-card bg-white p-5 sm:p-6 rounded-2xl border border-linen-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 class="font-serif text-lg sm:text-xl font-medium text-espresso-950">Deep Moisture Botanical Mask</h4>
+                      <p class="text-xs text-espresso-700 font-medium mt-1">25–30 min</p>
+                    </div>
+                    <span class="font-serif text-2xl font-semibold text-espresso-950">$35</span>
+                  </div>
+                  <p class="mt-3 text-sm text-espresso-800/80 leading-relaxed">Intensive repair infused with argan and shea butter to restore dehydrated locks.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-linen-100 flex items-center justify-between text-xs text-espresso-700">
+                  <span class="text-olive-600 font-medium">&bull; Argan &amp; botanical oils</span>
+                  <a href="tel:+14167787418" class="text-terracotta-600 font-medium hover:underline">Book by Phone</a>
+                </div>
+              </div>
+
+              <div class="service-card bg-white p-5 sm:p-6 rounded-2xl border border-linen-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 class="font-serif text-lg sm:text-xl font-medium text-espresso-950">Keratin Smoothing Infusion</h4>
+                      <p class="text-xs text-espresso-700 font-medium mt-1">90–120 min</p>
+                    </div>
+                    <span class="font-serif text-2xl font-semibold text-espresso-950">From $140</span>
+                  </div>
+                  <p class="mt-3 text-sm text-espresso-800/80 leading-relaxed">Tames stubborn humidity frizz, seals split cuticles, and cuts drying time in half for up to 8 weeks.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-linen-100 flex items-center justify-between text-xs text-espresso-700">
+                  <span class="text-olive-600 font-medium">&bull; Frizz-free for weeks</span>
+                  <a href="tel:+14167787418" class="text-terracotta-600 font-medium hover:underline">Book by Phone</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="category-block space-y-6" data-category="waxing">
+            <div class="border-b border-linen-300/80 pb-3 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+              <h3 class="font-serif text-2xl sm:text-3xl font-medium text-espresso-950">Waxing &amp; Brow Care</h3>
+              <span class="text-xs sm:text-sm text-espresso-700 font-normal italic">Gentle facial waxing and clean brow shaping using sensitive-skin botanical wax.</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              
+              <div class="service-card bg-white p-5 sm:p-6 rounded-2xl border border-linen-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 class="font-serif text-lg sm:text-xl font-medium text-espresso-950">Eyebrow Sculpt &amp; Clean-Up</h4>
+                      <p class="text-xs text-espresso-700 font-medium mt-1">15 min</p>
+                    </div>
+                    <span class="font-serif text-2xl font-semibold text-espresso-950">$15</span>
+                  </div>
+                  <p class="mt-3 text-sm text-espresso-800/80 leading-relaxed">Careful shaping to complement your natural brow architecture for clean, open eyes.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-linen-100 flex items-center justify-between text-xs text-espresso-700">
+                  <span class="text-olive-600 font-medium">&bull; Sensitive chamomile wax</span>
+                  <a href="tel:+14167787418" class="text-terracotta-600 font-medium hover:underline">Book by Phone</a>
+                </div>
+              </div>
+
+              <div class="service-card bg-white p-5 sm:p-6 rounded-2xl border border-linen-200 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 class="font-serif text-lg sm:text-xl font-medium text-espresso-950">Full Face Trio (Brows, Lip, Chin)</h4>
+                      <p class="text-xs text-espresso-700 font-medium mt-1">25 min</p>
+                    </div>
+                    <span class="font-serif text-2xl font-semibold text-espresso-950">$32</span>
+                  </div>
+                  <p class="mt-3 text-sm text-espresso-800/80 leading-relaxed">Complete facial waxing package with soothing aloe vera finish for a silky smooth canvas.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-linen-100 flex items-center justify-between text-xs text-espresso-700">
+                  <span class="text-olive-600 font-medium">&bull; Soothing aloe vera finish</span>
+                  <a href="tel:+14167787418" class="text-terracotta-600 font-medium hover:underline">Book by Phone</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-16 bg-linen-200/90 rounded-2xl p-6 sm:p-8 border border-linen-300">
+          <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="space-y-2 max-w-2xl">
+              <div class="flex items-center gap-2 text-xs font-semibold text-terracotta-700 uppercase tracking-wider">
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Fair Pricing Guarantee &bull; Phone Consultation</span>
+              </div>
+              <p class="text-sm sm:text-base text-espresso-900 font-medium">
+                Prices may vary slightly based on hair length, density, and customized formulation. We always confirm the exact total with you before getting started.
+              </p>
+              <p class="text-xs sm:text-sm text-espresso-700">
+                Have questions about color correction, balayage, or special treatments? Give us a call—we're always happy to discuss your hair and give an honest estimate over the phone.
+              </p>
+            </div>
+            <a href="tel:+14167787418" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-espresso-900 hover:bg-espresso-950 text-linen-100 px-6 py-3.5 rounded-full text-sm font-medium transition-colors shadow-sm flex-shrink-0">
+              <svg class="w-4 h-4 text-terracotta-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <span>Call Us: (416) 778-7418</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. ABOUT US -->
+    <section id="about" class="py-16 md:py-24 bg-linen-100 scroll-mt-20 border-t border-linen-300/60">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <div class="lg:col-span-5 relative order-2 lg:order-1">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-white aspect-[4/5] bg-linen-200">
+                <img
+                  src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&q=80"
+                  alt="Stylist working with client hair in warm natural light"
+                  class="w-full h-full object-cover filter saturate-[0.95]"
+                  loading="lazy"
+                />
+              </div>
+              <div class="absolute -bottom-6 -right-4 sm:-bottom-8 sm:-right-6 bg-linen-50 border border-linen-300 p-5 rounded-2xl shadow-xl max-w-xs text-left">
+                <div class="flex items-center gap-2 mb-2">
+                  <div class="w-8 h-8 rounded-full bg-olive-100 flex items-center justify-center text-olive-700 font-bold">
+                    ✓
+                  </div>
+                  <div>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-espresso-900">Community Staple</p>
+                    <p class="text-[11px] text-espresso-700">East Chinatown &bull; Riverside</p>
+                  </div>
+                </div>
+                <p class="text-xs text-espresso-800 leading-relaxed italic">
+                  &ldquo;A warm, friendly team that listens to what you want and never rushes you through the chair.&rdquo;
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 space-y-6 text-left order-1 lg:order-2">
+            <div class="inline-flex items-center gap-2 bg-linen-200 border border-linen-300 text-espresso-800 px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide">
+              <span>Locally Run Since 2008</span>
+            </div>
+
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-espresso-950 leading-[1.2]">
+              A welcoming chair where you're treated like family.
+            </h2>
+
+            <div class="space-y-4 text-base sm:text-lg text-espresso-800/85 leading-relaxed font-normal">
+              <p>
+                Tucked into the vibrant stretch of Broadview Avenue, Rainbow Hair Salon was built on a simple, timeless principle: good hair care shouldn't feel intimidating, pretentious, or overpriced. For over fifteen years, our women-led team has greeted neighbors, busy parents, students, and long-time regulars with warm smiles and thoughtful craft.
+              </p>
+              <p>
+                We believe a salon visit should be a comforting pause in your week. Whether you're coming in for a clean trim, maintaining your signature color, or bringing your child for their first big-kid haircut, we take our time to listen, consult, and deliver results that suit your natural texture and daily lifestyle.
+              </p>
+              <p>
+                No rush, no high-pressure retail upsells, and no surprise charges at the register. Just honest neighborhood care, attentive hands, and a space where you always leave feeling refreshed and confident.
+              </p>
+            </div>
+
+            <div class="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-linen-300">
+              <div class="bg-linen-50 p-4 rounded-xl border border-linen-200 shadow-sm space-y-2">
+                <div class="w-8 h-8 rounded-lg bg-terracotta-100 text-terracotta-600 flex items-center justify-center">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </div>
+                <h3 class="font-serif text-base font-semibold text-espresso-950">Women-Owned &amp; Rooted</h3>
+                <p class="text-xs text-espresso-700 leading-normal">Deeply invested in our Toronto East End neighborhood for over 15 years.</p>
+              </div>
+
+              <div class="bg-linen-50 p-4 rounded-xl border border-linen-200 shadow-sm space-y-2">
+                <div class="w-8 h-8 rounded-lg bg-terracotta-100 text-terracotta-600 flex items-center justify-center">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                  </svg>
+                </div>
+                <h3 class="font-serif text-base font-semibold text-espresso-950">Transparent Pricing</h3>
+                <p class="text-xs text-espresso-700 leading-normal">Clear prices with zero hidden charges. Honest quotes before any scissors touch hair.</p>
+              </div>
+
+              <div class="bg-linen-50 p-4 rounded-xl border border-linen-200 shadow-sm space-y-2">
+                <div class="w-8 h-8 rounded-lg bg-terracotta-100 text-terracotta-600 flex items-center justify-center">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <h3 class="font-serif text-base font-semibold text-espresso-950">Relaxed Pace</h3>
+                <p class="text-xs text-espresso-700 leading-normal">Focused time dedicated to each guest. We listen closely to what you truly want.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. HOURS, LOCATION & PARKING -->
+    <section id="hours-location" class="py-16 md:py-24 bg-linen-50 scroll-mt-20 border-t border-linen-300">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <div class="inline-flex items-center gap-1.5 text-terracotta-600 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-3">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>Find Us on Broadview</span>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-espresso-950">
+            Hours &amp; Location
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-espresso-800/80 leading-relaxed font-normal">
+            Easily reached by car or TTC streetcar. Drop in or call ahead to save your chair.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          
+          <div class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-2xl border border-linen-200 shadow-sm space-y-6">
+            <div class="flex items-center justify-between pb-4 border-b border-linen-200">
+              <div class="flex items-center gap-2.5">
+                <svg class="w-5 h-5 text-terracotta-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                <h3 class="font-serif text-2xl font-medium text-espresso-950">Salon Hours</h3>
+              </div>
+
+              <div id="liveStatusBadge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border bg-linen-100 border-linen-300">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Open &bull; Closes 8 PM</span>
+              </div>
+            </div>
+
+            <table class="w-full text-sm">
+              <tbody id="hoursTableBody">
+                <tr data-day="Monday" class="border-b border-linen-100/80">
+                  <td class="py-3 px-2">Monday</td>
+                  <td class="py-3 px-2 text-right">10:00 AM – 8:00 PM</td>
+                </tr>
+                <tr data-day="Tuesday" class="border-b border-linen-100/80">
+                  <td class="py-3 px-2">Tuesday</td>
+                  <td class="py-3 px-2 text-right">10:00 AM – 8:00 PM</td>
+                </tr>
+                <tr data-day="Wednesday" class="border-b border-linen-100/80">
+                  <td class="py-3 px-2">Wednesday</td>
+                  <td class="py-3 px-2 text-right">10:00 AM – 8:00 PM</td>
+                </tr>
+                <tr data-day="Thursday" class="border-b border-linen-100/80">
+                  <td class="py-3 px-2">Thursday</td>
+                  <td class="py-3 px-2 text-right">10:00 AM – 8:00 PM</td>
+                </tr>
+                <tr data-day="Friday" class="border-b border-linen-100/80">
+                  <td class="py-3 px-2">Friday</td>
+                  <td class="py-3 px-2 text-right">10:00 AM – 8:00 PM</td>
+                </tr>
+                <tr data-day="Saturday" class="border-b border-linen-100/80">
+                  <td class="py-3 px-2">Saturday</td>
+                  <td class="py-3 px-2 text-right">10:00 AM – 8:00 PM</td>
+                </tr>
+                <tr data-day="Sunday" class="last:border-0">
+                  <td class="py-3 px-2">Sunday</td>
+                  <td class="py-3 px-2 text-right">11:00 AM – 6:00 PM</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="bg-linen-100 p-4 rounded-xl border border-linen-200 flex items-center justify-between gap-4">
+              <div class="text-xs text-espresso-700">
+                <span class="font-medium text-espresso-900 block mb-0.5">Need a specific time?</span>
+                Calling ahead guarantees zero wait time.
+              </div>
+              <a href="tel:+14167787418" class="flex-shrink-0 inline-flex items-center gap-1.5 text-xs font-semibold bg-terracotta-500 hover:bg-terracotta-600 text-white px-3.5 py-2 rounded-full transition-colors">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span>Call Now</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 space-y-6">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-linen-200 shadow-sm space-y-6">
+              <div class="space-y-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-terracotta-600 block">Neighborhood Location</span>
+                <p class="font-serif text-3xl font-medium text-espresso-950">308 Broadview Ave</p>
+                <p class="text-base text-espresso-800 font-normal">
+                  Toronto, ON M4M 2G9 &bull; <span class="text-espresso-700">Broadview / Riverside / Riverdale</span>
+                </p>
+                <p class="text-xs text-espresso-700 italic">Between Gerrard St E &amp; Dundas St E</p>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-3 pt-2">
+                <a href="https://www.google.com/maps/search/?api=1&query=Rainbow+Hair+Salon+308+Broadview+Ave+Toronto+ON+M4M+2G9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-espresso-900 hover:bg-espresso-950 text-linen-100 px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-colors">
+                  <svg class="w-4 h-4 text-terracotta-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <span>Open in Google Maps</span>
+                  <svg class="w-3 h-3 text-linen-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+
+                <a href="https://www.bing.com/maps?cp=43.66416931152344%7E-79.35232543945312&lvl=17.0&q=Rainbow%20Hair%20Salon%20%2C%20308%20Broadview%20Ave%2C%20Toronto%20ON%20M4M%202G9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-linen-200 hover:bg-linen-300 text-espresso-900 border border-linen-300 px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-colors">
+                  <span>Open in Bing Maps</span>
+                  <svg class="w-3 h-3 text-espresso-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-linen-200">
+                <div class="space-y-1.5">
+                  <div class="flex items-center gap-1.5 text-xs font-semibold text-espresso-950 uppercase tracking-wider">
+                    <svg class="w-4 h-4 text-terracotta-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="4" y="3" width="16" height="16" rx="2" />
+                      <path d="M4 11h16" />
+                      <path d="M12 3v8" />
+                      <circle cx="8" cy="15" r="1" />
+                      <circle cx="16" cy="15" r="1" />
+                    </svg>
+                    <span>TTC Transit</span>
+                  </div>
+                  <p class="text-xs text-espresso-700 leading-relaxed">
+                    Accessible via 504 King, 505 Dundas, and 506 Carlton streetcars directly along Broadview Ave. Broadview Station is 7 mins north.
+                  </p>
+                </div>
+
+                <div class="space-y-1.5">
+                  <div class="flex items-center gap-1.5 text-xs font-semibold text-espresso-950 uppercase tracking-wider">
+                    <svg class="w-4 h-4 text-olive-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 10.9 2 11.2 2 11.5V16c0 .6.4 1 1 1h2" />
+                      <circle cx="7" cy="17" r="2" />
+                      <path d="M9 17h6" />
+                      <circle cx="17" cy="17" r="2" />
+                    </svg>
+                    <span>Free &amp; Metered Parking</span>
+                  </div>
+                  <p class="text-xs text-espresso-700 leading-relaxed">
+                    Street parking along Broadview Ave, plus free 2-hour neighborhood parking on adjacent streets (Simpson Ave and Mount Stephen St).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-espresso-950 text-linen-100 p-6 sm:p-7 rounded-2xl shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div class="space-y-1">
+                <p class="text-xs uppercase tracking-wider text-terracotta-300 font-semibold">Direct Line &bull; No Automated Menus</p>
+                <p class="font-serif text-2xl font-medium">(416) 778-7418</p>
+                <p class="text-xs text-linen-300/80">Speak directly to our stylists. Walk-ins accommodated whenever chairs are free.</p>
+              </div>
+
+              <a href="tel:+14167787418" class="inline-flex items-center gap-2 bg-terracotta-500 hover:bg-terracotta-600 text-white px-6 py-3 rounded-full text-sm font-medium transition-all shadow hover:shadow-lg flex-shrink-0">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span>Tap to Call</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 7. FOOTER -->
+  <footer class="bg-espresso-950 text-linen-200 pt-16 pb-24 md:pb-16 border-t border-espresso-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-espresso-800/80">
+        
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="w-8 h-8 rounded-full bg-espresso-800 flex items-center justify-center text-terracotta-400">
+              <svg class="w-4 h-4 transform -rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="6" cy="6" r="3"></circle>
+                <circle cx="6" cy="18" r="3"></circle>
+                <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+                <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+                <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+              </svg>
+            </span>
+            <span class="font-serif text-2xl font-medium tracking-tight text-linen-100">Rainbow Hair Salon</span>
+          </div>
+          <p class="text-sm text-linen-300/80 max-w-sm leading-relaxed">
+            A women-owned neighborhood salon proudly serving Toronto's Broadview, Riverside, South Riverdale, and East Chinatown communities.
+          </p>
+          <div class="flex items-center gap-2 text-xs text-terracotta-300 font-medium">
+            <svg class="w-3.5 h-3.5 fill-terracotta-400 text-terracotta-400" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            <span>Independent &bull; Welcoming Everyone Since 2008</span>
+          </div>
+        </div>
+
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-linen-100">Quick Navigation</h4>
+          <ul class="space-y-2 text-sm text-linen-300/80">
+            <li><a href="#services" class="hover:text-terracotta-300 transition-colors">Services &amp; Pricing</a></li>
+            <li><a href="#about" class="hover:text-terracotta-300 transition-colors">Our Story</a></li>
+            <li><a href="#hours-location" class="hover:text-terracotta-300 transition-colors">Hours &amp; Location</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=Rainbow+Hair+Salon+308+Broadview+Ave+Toronto+ON+M4M+2G9" target="_blank" rel="noopener noreferrer" class="hover:text-terracotta-300 transition-colors">Google Maps Directions</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4 space-y-4">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-linen-100">Visit or Call Us</h4>
+          <div class="space-y-2 text-sm text-linen-300/90">
+            <div class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-terracotta-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>308 Broadview Ave, Toronto, ON M4M 2G9</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-terracotta-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <a href="tel:+14167787418" class="hover:text-terracotta-300 transition-colors font-medium text-linen-100">(416) 778-7418</a>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <p class="text-[11px] uppercase tracking-wider text-linen-400/80 font-semibold mb-2">Accepted Payment Methods</p>
+            <div class="flex flex-wrap items-center gap-2 text-xs">
+              <span class="bg-espresso-900 border border-espresso-800 text-linen-200 px-2.5 py-1 rounded-md">Cash</span>
+              <span class="bg-espresso-900 border border-espresso-800 text-linen-200 px-2.5 py-1 rounded-md">Interac Debit</span>
+              <span class="bg-espresso-900 border border-espresso-800 text-linen-200 px-2.5 py-1 rounded-md">Visa</span>
+              <span class="bg-espresso-900 border border-espresso-800 text-linen-200 px-2.5 py-1 rounded-md">Mastercard</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-linen-400/70 text-center sm:text-left">
+        <p>&copy; <span id="currentYear"></span> Rainbow Hair Salon. All rights reserved.</p>
+        <p>Prices subject to consultation. Walk-ins subject to chair availability.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 8. MOBILE PERSISTENT CALL BAR -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-linen-100/95 backdrop-blur-md border-t border-linen-300 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom));">
+    <div class="max-w-md mx-auto flex items-center gap-3">
+      <a href="#services" class="flex flex-col items-center justify-center p-2 rounded-xl text-espresso-800 hover:text-terracotta-600 hover:bg-linen-200 transition-colors text-[10px] font-medium flex-shrink-0">
+        <svg class="w-5 h-5 text-espresso-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span>Prices</span>
+      </a>
+      <a href="tel:+14167787418" class="flex-1 flex items-center justify-center gap-2 bg-terracotta-500 hover:bg-terracotta-600 active:bg-terracotta-700 text-white py-3 px-4 rounded-full font-medium text-sm shadow-md transition-all active:scale-[0.98]">
+        <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+        <span>Call to Book: (416) 778-7418</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 9. EMBEDDED LIGHTWEIGHT SCRIPT (ZERO DEPENDENCIES) -->
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const categoryBlocks = document.querySelectorAll('.category-block');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('active', 'bg-espresso-900', 'text-linen-100');
+          b.classList.add('bg-linen-200', 'text-espresso-800');
+        });
+        btn.classList.add('active', 'bg-espresso-900', 'text-linen-100');
+        btn.classList.remove('bg-linen-200', 'text-espresso-800');
+
+        const selected = btn.getAttribute('data-category');
+        categoryBlocks.forEach(block => {
+          if (selected === 'all' || block.getAttribute('data-category') === selected) {
+            block.style.display = 'block';
+          } else {
+            block.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    (function updateLiveStatus() {
+      const now = new Date();
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const today = days[now.getDay()];
+      const hour = now.getHours();
+      const minute = now.getMinutes();
+      const currentTime = hour * 60 + minute;
+
+      const rows = document.querySelectorAll('#hoursTableBody tr');
+      rows.forEach(row => {
+        if (row.getAttribute('data-day') === today) {
+          row.classList.add('bg-terracotta-50', 'font-semibold', 'text-espresso-950');
+          const cell = row.children[0];
+          cell.innerHTML += ' <span class="text-[10px] uppercase font-bold text-terracotta-600 bg-terracotta-100 px-1.5 py-0.5 rounded ml-1">Today</span>';
+        }
+      });
+
+      const openTime = today === 'Sunday' ? 11 * 60 : 10 * 60;
+      const closeTime = today === 'Sunday' ? 18 * 60 : 20 * 60;
+      const closeStr = today === 'Sunday' ? '6:00 PM' : '8:00 PM';
+      const openStr = today === 'Sunday' ? '11:00 AM' : '10:00 AM';
+
+      const badge = document.getElementById('liveStatusBadge');
+      if (currentTime >= openTime && currentTime < closeTime) {
+        badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span>Open Now &bull; Closes ' + closeStr + '</span>';
+      } else if (currentTime < openTime) {
+        badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-amber-500"></span><span>Opens Today at ' + openStr + '</span>';
+      } else {
+        badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-stone-400"></span><span>Closed &bull; Opens Tomorrow at 10:00 AM</span>';
+      }
+    })();
+  </script>
+
+</body>
 </html>
